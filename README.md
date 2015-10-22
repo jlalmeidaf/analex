@@ -34,7 +34,7 @@ LPM é uma linguagem bastante semelhante com os primórdios da linguagem Fortran
 
 ## Observações
 
-Os nomes devem começar com letras, mas não por números. No entanto, pode haver números na sintaxe do nome. A linguagem não é *case-sensitive*
+Os nomes devem começar com letras, mas não por números. No entanto, pode haver números na sintaxe do nome. A linguagem não é *case-sensitive*.
  
 
 ## Objetivo
