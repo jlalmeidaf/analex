@@ -17,30 +17,19 @@ end;
 
 ### Exemplo de programa em LPM:
 
-program hello
-
-var
-	x:integer, y:integer;
-
-end;
-
-begin
-
-	x <- 0;
-
-	x <- x + 1;
-
- L1 y <- 0;
-
-	loop x;
-
-		y <- y+1;
-
-		goto L1;
-
+	program hello
+	var
+		x:integer, y:integer;
 	end;
-
-end;
+	begin
+		x <- 0;
+		x <- x + 1;
+ 		L1 y <- 0;
+		loop x;
+			y <- y+1;
+			goto L1;
+		end;
+	end;
 	
 
  
