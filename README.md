@@ -21,16 +21,25 @@ program hello
 
 var
 	x:integer, y:integer;
+
 end;
 
 begin
+
 	x <- 0;
+
 	x <- x + 1;
+
  L1 y <- 0;
+
 	loop x;
+
 		y <- y+1;
+
 		goto L1;
+
 	end;
+
 end;
 	
 
