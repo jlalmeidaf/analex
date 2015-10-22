@@ -8,12 +8,12 @@ LPM é uma linguagem bastante semelhante com os primórdios da linguagem Fortran
 
 ### Comandos possíveis:
 
-z <- 0;
-z <- z+1;
-loop z;
-z <- x;
-goto l1;
-end;
+	z <- 0;
+	z <- z+1;
+	loop z;
+	z <- x;
+	goto l1;
+	end;
 
 ### Exemplo de programa em LPM:
 
