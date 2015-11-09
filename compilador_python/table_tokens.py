@@ -25,3 +25,20 @@ def table_token(lst_words): #Cria a tabela de tokens
 	NUM = [0,1,2,3,4,5,6,7,8,9]
 	# criar identificadores com regex
 	CE= [",","(",")", "<-", "*"]
+	
+	with open("table.txt", "w") as table: #Cria tabela um novo documento
+		for words in lst_words:
+			if words in PR:
+				table.write("%s:Palavra Reservada \n" % words)
+			#elif words in ID:
+			#	table.write("%s:Identificador \n" % words)
+			elif words in CE:
+				table.write("%s:Caracter Especial\n" % words)
+			elif words in NUM:
+				table.write("%s: Numero\n" % words)
+			else:
+				table.write("%s:Literal \n" % words)
+	table.close() # fecha
+
+lst_words = create_lst()
+table_token(lst_words)
