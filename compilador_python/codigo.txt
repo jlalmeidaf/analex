@@ -1,0 +1,21 @@
+program hello;
+
+// variáveis
+
+
+var
+    x:integer, y:integer;
+end;
+
+// inicio do programa
+begin
+    x <- 0;
+    x <- x + 1;
+    L1 y <- 0;
+    loop x;
+        y <- y+1;
+        goto L1;
+    end;
+end;
+
+//fim do programa
