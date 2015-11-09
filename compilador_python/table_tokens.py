@@ -18,3 +18,10 @@ def create_lst(): #Cria uma lista com todas as palavras do documento
 			lst2.append(word)
 	
 	return lst2
+
+def table_token(lst_words): #Cria a tabela de tokens
+
+	PR = ["var","program","integer","end","begin","goto"]
+	NUM = [0,1,2,3,4,5,6,7,8,9]
+	# criar identificadores com regex
+	CE= [",","(",")", "<-", "*"]
