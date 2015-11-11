@@ -1,16 +1,21 @@
 # coding=utf-8
 import re
 import sys 
+
+
+PALAVRAS_RESERVADAS = ["var","program","end;","begin","goto",'loop']
+LITERAL = ["integer"]
+NUMEROS = ['0','1','2','3','4','5','6','7','8','9']
+DELIMITADORES = [",",";",":"]
+OPERADORES = ['<-','+']
+
+
 def create_lst(): #Cria uma lista com todas as palavras do documento
 
 	palavra=''
 	lst 	= []
 	lst2 	= []
 	ListaDelimitador 	= []
-	PALAVRAS_RESERVADAS = ["var","program","integer","end;","begin","goto",'loop']
-	NUMEROS = ['0','1','2','3','4','5','6','7','8','9']
-	DELIMITADORES = [",",";",":"]
-	OPERADORES = ['<-','+']
 	
 	#name = raw_input("Enter the document name: ")
 	with open("codigo.txt", "r") as f: #Abre o documento
@@ -31,20 +36,29 @@ def create_lst(): #Cria uma lista com todas as palavras do documento
 					if len(palavra) == 0:
 						pass
 					else: 
-						print 'PALAVRAS: %s' % palavra
+						tokens = token(palavra) 
+						print '%s: %s' %(tokens,palavra)
 					palavra = ''
 				elif eachrow in DELIMITADORES:
 					if len(palavra) == 0:
 						pass
 					else:
-						print 'Palavra: %s' % palavra
-						print 'Delimitador: %s' % eachrow 
+						tokens = token(palavra)  
+						print '%s: %s' %(tokens,palavra)
+						tokens = token(eachrow) 
+						print '%s: %s' %(tokens,eachrow)  
 					palavra = ''
 				elif eachrow in OPERADORES:
 					if len(palavra) == 0:
 						pass
 					else:
-						print 'Operador: %s' % eachrow
+						tokens = token(palavra)  
+						print '%s: %s' %(tokens,palavra)
+						tokens = token(eachrow) 
+						print '%s: %s' %(tokens,eachrow)
+						
+						print 'Verificando: %s' % eachrow  
+					palavra = ''
 				else:
 					palavra = '%s%s' %(palavra,eachrow)
 
@@ -60,13 +74,31 @@ def create_lst(): #Cria uma lista com todas as palavras do documento
 					#	palavra = '%s%s' %(palavra,eachrow) 
 					#	print "Teste: " + palavra
  
-	
+def token(palavra):
 
-create_lst()
+	token = ''
 
-
-def palavra_vazia(palavra):
-	if not palavra:
-		return true
+	if palavra in PALAVRAS_RESERVADAS:
+		token = 'Palavra Reservada'
+		return token
+	elif palavra in NUMEROS:
+		token = 'NUMEROS'
+		return token
+	elif palavra in DELIMITADORES:
+		token = 'DELIMITADORES'
+		return token
+	elif palavra in OPERADORES:
+		token = 'OPERADORES'
+		return token
+	elif palavra in LITERAL:
+		token = 'LITERAL'
+		return token
 	else:
-		return false
+		return 'IDENTIFICADOR'	
+
+
+
+if __name__ == "__main__":
+	create_lst()
+
+
