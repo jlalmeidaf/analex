@@ -1,11 +1,12 @@
 # coding=utf-8
-import re 
+import re
+import sys 
 def create_lst(): #Cria uma lista com todas as palavras do documento
 
 	palavra=''
 	lst 	= []
 	lst2 	= []
-	var 	= []
+	ListaDelimitador 	= []
 	PALAVRAS_RESERVADAS = ["var","program","integer","end;","begin","goto",'loop']
 	NUMEROS = ['0','1','2','3','4','5','6','7','8','9']
 	DELIMITADORES = [",",";",":"]
@@ -26,19 +27,46 @@ def create_lst(): #Cria uma lista com todas as palavras do documento
 		else:
 			for eachrow in row:#esse cada caracter
 
-				if palavra == ' ':
-					pass
+				if eachrow == ' ':
+					if len(palavra) == 0:
+						pass
+					else: 
+						print 'PALAVRAS: %s' % palavra
+					palavra = ''
+				elif eachrow in DELIMITADORES:
+					if len(palavra) == 0:
+						pass
+					else:
+						print 'Palavra: %s' % palavra
+						print 'Delimitador: %s' % eachrow 
+					palavra = ''
+				elif eachrow in OPERADORES:
+					if len(palavra) == 0:
+						pass
+					else:
+						print 'Operador: %s' % eachrow
 				else:
-					palavra = '%s%s' %(palavra,eachrow) 
-					id_tokens(palavra)
-					print "Teste: " + palavra
+					palavra = '%s%s' %(palavra,eachrow)
+
+
+
+					#print "Teste: " + palavra
+
+
+
+					#if palavra == 'program':
+					#	print "PALAVRAS_RESERVADAS - %s" % palavra
+					#else:
+					#	palavra = '%s%s' %(palavra,eachrow) 
+					#	print "Teste: " + palavra
  
 	
-def id_tokens(palavra):
-	if palavra == '//':
-		return 'break'
-	else:
-		print '0'
-
 
 create_lst()
+
+
+def palavra_vazia(palavra):
+	if not palavra:
+		return true
+	else:
+		return false
