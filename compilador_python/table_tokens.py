@@ -57,7 +57,6 @@ def create_lst(): #Cria uma lista com todas as palavras do documento
 				else:
 					palavra = '%s%s' %(palavra,eachrow)
 					palavra = palavra.strip()
-					print " teste :" + palavra
 
 
 
