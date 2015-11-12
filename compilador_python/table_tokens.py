@@ -3,11 +3,11 @@ import re
 import sys 
 
 
-PALAVRAS_RESERVADAS = ["var","program","end;","begin","goto",'loop']
-LITERAL = ["integer"]
-NUMEROS = ['0','1','2','3','4','5','6','7','8','9']
-DELIMITADORES = [",",";",":"]
-OPERADORES = ['<-','+']
+PALAVRAS_RESERVADAS = ["var","program","end","begin","goto",'loop']
+LITERAL 			= ["integer"]
+NUMEROS 			= ['0','1','2','3','4','5','6','7','8','9']
+DELIMITADORES 		= [",",";",":"]
+OPERADORES 			= ['+', '<-']
 
 
 def create_lst(): #Cria uma lista com todas as palavras do documento
@@ -49,18 +49,15 @@ def create_lst(): #Cria uma lista com todas as palavras do documento
 						print '%s: %s' %(tokens,eachrow)  
 					palavra = ''
 				elif eachrow in OPERADORES:
-					if len(palavra) == 0:
-						pass
-					else:
-						tokens = token(palavra)  
-						print '%s: %s' %(tokens,palavra)
-						tokens = token(eachrow) 
-						print '%s: %s' %(tokens,eachrow)
-						
-						print 'Verificando: %s' % eachrow  
+					tokens = token(palavra)  
+					print '%s: %s' %(tokens,palavra)
+					tokens = token(eachrow) 
+					print '%s: %s' %(tokens,eachrow)
 					palavra = ''
 				else:
 					palavra = '%s%s' %(palavra,eachrow)
+					palavra = palavra.strip()
+					print " teste :" + palavra
 
 
 
